@@ -1,0 +1,76 @@
+<script type="text/javascript">
+
+//========================
+// Function Litteral STYLE 1
+//=========================
+function createAnimal(name){ 
+	var obj = {};
+	obj.name = name;
+	obj.speak = function(){
+		console.log('Hello ' + this.name);
+	}
+	return obj;
+}
+
+var cat = new createAnimal('catty');
+cat.name;
+cat.speak();
+
+//========================
+// Function Litteral STYLE 2
+//=========================
+var myCircle = function Circle(radius){ //
+	this.radius = radius;   
+  	this.getArea = getArea;
+	function getArea(){   
+		return (this.radius*this.radius*3.14);   
+	} 
+}   
+   
+var bigCircle = new myCircle(100);     
+alert(bigCircle.getArea()); // displays 31400  
+
+
+//========================
+// Function Litteral STYLE 3
+//=========================
+var myCircle = new function(radius){
+  	this.getArea = getArea;
+	function getArea(radius){   
+		return (radius*radius*3.14);   
+	} 
+}
+
+alert(myCircle.getArea(100)); // displays 31400  
+
+
+//========================
+// Function Litteral STYLE 4
+//=========================
+var myNumber = new Number(2);    
+myNumber.doubleIt = Function("return this*2"); 
+alert(myNumber.doubleIt()); // displays 4 
+
+//====================
+// Object Litteral 
+//====================
+var circle = {
+	radius : 0,
+	getArea : function(){
+		return (this.radius*this.radius*3.14);
+	} 
+}
+
+circle.radius = 100;
+alert(circle.getArea());
+
+
+//==========================
+//Function as Object
+//============================
+// var myFuncObj = new Function();    
+// var myFuncObj = Function();    
+// var myFuncObj = function(){}    
+// function myFuncObj(){}
+</script>
+
